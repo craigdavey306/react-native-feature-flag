@@ -9,18 +9,12 @@ const PremiumChat = (): React.JSX.Element => {
     </View>
   );
 
-  const newComponentDisplay: React.JSX.Element = (
-    <View style={styles.container}>
-      <Text>Premium Chat NEW Displays Here</Text>
-    </View>
-  );
-
   return (
-    <FeatureGate
-      flag={FeatureFlags.PremiumChat}
-      fallback={oldComponentDisplay}
-      children={newComponentDisplay}
-    />
+    <FeatureGate flag={FeatureFlags.PremiumChat} fallback={oldComponentDisplay}>
+      <View style={styles.container}>
+        <Text>Premium Chat NEW Displays Here</Text>
+      </View>
+    </FeatureGate>
   );
 };
 
