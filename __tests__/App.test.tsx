@@ -1,13 +1,14 @@
-/**
- * @format
- */
-
 import React from 'react';
-import ReactTestRenderer from 'react-test-renderer';
+import { render, screen } from '@testing-library/react-native';
 import App from '../App';
+import { TestSafeAreaProvider } from './utils';
 
 test('renders correctly', async () => {
-  await ReactTestRenderer.act(() => {
-    ReactTestRenderer.create(<App />);
-  });
+  render(
+    <TestSafeAreaProvider>
+      <App />
+    </TestSafeAreaProvider>,
+  );
+
+  expect(screen.getByTestId('feature-title')).toBeTruthy();
 });

@@ -59,7 +59,9 @@ function AppComponent() {
   return (
     <View>
       <View style={styles.titleContainer}>
-        <Text style={styles.titleText}>Example of Feature Switches</Text>
+        <Text style={styles.titleText} testID="feature-title">
+          Example of Feature Switches
+        </Text>
       </View>
       {Object.entries(flags).map(([flag, isEnabled]) => {
         const title = toTitleCase(replaceDelimiter(flag, '_', ' '));
